@@ -2,8 +2,22 @@ import re
 import nltk
 from nltk.corpus import stopwords
 from nltk.corpus import wordnet as wn
+import sys
 
-fil = open("ter.txt","r")
+print('Arguments:', len(sys.argv))
+print('List:', str(sys.argv))
+if len(sys.argv) < 2:
+    print('No filename specified')
+    print("Enter the file name:")
+    filename = str(raw_input())
+else:
+    filename = sys.argv[1]
+    print('Filename:', filename)
+
+
+
+
+fil = open(filename,"r")
 ne = fil.read()
 print "Original Paragraph:"
 print ne
@@ -212,7 +226,8 @@ fin.sort(key=lambda x: x[0],reverse=True)
 
 print ("How many lines of summary you want:")
 a = raw_input()
+print('')
+print('SUMMARY:')
 for i in range(0,int(a)):
 	print ne[fin[i][1]+1] + '.'
-
 
